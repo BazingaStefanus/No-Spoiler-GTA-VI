@@ -36,8 +36,7 @@ To publish permanently, upload the zips from `dist/` to the respective stores (C
 - The tab title, address bar suggestions, content inside closed shadow DOM, and images without any context (CSS background only, with no keyword nearby) cannot be detected.
 - Container detection is a heuristic. Very large containers are narrowed down to paragraph level; any area can be revealed with a click (except in the "Komplett ausblenden" (hide completely) mode).
 - When redacting, a keyword stays readable only if it sits in a single text node; a match like "GTA <b>6</b>" (spanning several elements) is redacted along with the rest.
-- In the "Unscharf" (blur) mode, the entire container is always blurred.
-- Redaction uses the CSS Custom Highlight API (Chrome/Edge 105+, Firefox 140+); without it, the extension falls back to "Unscharf" (blur). Redacted text remains in the DOM (page source/screen readers).
+
 
 ## Structure
 

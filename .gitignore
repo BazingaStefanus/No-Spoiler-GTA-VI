@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+dist/
+build/
+web-ext-artifacts/
+*.zip
+*.xpi
+*.log
+.env
+.env.*
+.vscode/
+.idea/
+coverage/
+AGENTS.md

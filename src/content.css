@@ -1,0 +1,55 @@
+/* Modus wird über data-nsg-mode auf <html> gesteuert (blackout | blur | hide). */
+
+/* ---------- Gemeinsam ---------- */
+.nsg-hidden:not(.nsg-revealed) {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+/* ---------- Schwärzen ----------
+   Text: schwarze Balken über die CSS Custom Highlight API (siehe content.js).
+   Bilder/Videos: unscharf. */
+::highlight(nsg-redact) {
+  color: #000;
+  -webkit-text-fill-color: #000;
+  background-color: #000;
+  text-shadow: none;
+}
+
+/* Dunkle Seiten: weiße Balken */
+::highlight(nsg-redact-light) {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  background-color: #fff;
+  text-shadow: none;
+}
+
+html[data-nsg-mode="blackout"] .nsg-block:not(.nsg-revealed) * {
+  text-decoration-color: transparent !important;
+}
+
+html[data-nsg-mode="blackout"][data-nsg-media="on"] .nsg-block:not(.nsg-revealed) :is(img, video, canvas, svg, iframe, object, embed, .nsg-media-host, shreddit-player, shreddit-player-2, gallery-carousel),
+html[data-nsg-mode="blackout"] .nsg-media:not(.nsg-revealed) {
+  filter: blur(22px) !important;
+  clip-path: inset(0) !important;
+}
+
+/* ---------- Unscharf ---------- */
+html[data-nsg-mode="blur"] .nsg-block:not(.nsg-revealed) {
+  filter: blur(10px) !important;
+}
+html[data-nsg-mode="blur"] .nsg-media:not(.nsg-revealed) {
+  filter: blur(24px) !important;
+}
+
+/* ---------- Komplett ausblenden ---------- */
+html[data-nsg-mode="hide"] .nsg-hidden {
+  display: none !important;
+}
+
+/* iframes/Videos fangen sonst den Klick zum Aufdecken ab */
+.nsg-hidden:not(.nsg-revealed) :is(iframe, video, object, embed, .nsg-media-host),
+iframe.nsg-hidden:not(.nsg-revealed),
+video.nsg-hidden:not(.nsg-revealed) {
+  pointer-events: none !important;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>No Spoiler for GTA VI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>No Spoiler for GTA VI</h1>
+
+  <label class="row">
+    <input type="checkbox" id="enabled">
+    <span>Spoilerschutz aktiv</span>
+  </label>
+
+  <label class="row" id="siteRow">
+    <input type="checkbox" id="site">
+    <span>Auf <strong id="host">dieser Seite</strong> aktiv</span>
+  </label>
+  <p class="hint" id="hint"></p>
+
+  <button id="options" type="button">Einstellungen</button>
+
+  <script src="../src/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>No Spoiler for GTA VI – Einstellungen</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>No Spoiler for GTA VI</h1>
+
+    <section>
+      <h2>Keywords</h2>
+      <p class="help">Ein Begriff pro Zeile. Groß-/Kleinschreibung ist egal; Leerzeichen und Bindestriche sind austauschbar (&bdquo;GTA 6&ldquo; findet auch &bdquo;GTA-6&ldquo; und &bdquo;GTA6&ldquo;). Gefunden werden nur ganze Wörter.</p>
+      <textarea id="keywords" rows="8" spellcheck="false"></textarea>
+      <button type="button" id="resetKeywords" class="secondary">Standard-Keywords wiederherstellen</button>
+    </section>
+
+    <section>
+      <h2>Darstellung</h2>
+      <fieldset>
+        <legend>Ausblendmodus</legend>
+        <label><input type="radio" name="mode" value="blackout"> Schwärzen: schwarze Balken über dem Text, auf dunklen Seiten weiße (Keywords bleiben lesbar), Bilder unscharf (Klick zum Anzeigen)</label>
+        <label><input type="radio" name="mode" value="blur"> Unscharf (Klick zum Anzeigen)</label>
+        <label><input type="radio" name="mode" value="hide"> Komplett ausblenden (kein Aufdecken möglich)</label>
+      </fieldset>
+      <fieldset>
+        <legend>Was wird bei einem Treffer verborgen?</legend>
+        <label><input type="radio" name="granularity" value="container"> Ganzer Container (Artikel, Listeneintrag, Kommentar, Karte)</label>
+        <label><input type="radio" name="granularity" value="paragraph"> Nur der Absatz bzw. die Zeile mit dem Treffer</label>
+      </fieldset>
+      <label class="check"><input type="checkbox" id="hideMedia"> Bilder und Videos verbergen (in Treffer-Containern sowie Bilder, deren Beschreibung, Dateiname oder Link ein Keyword enthält)</label>
+    </section>
+
+    <section>
+      <h2>Webseiten</h2>
+      <fieldset>
+        <label><input type="radio" name="siteMode" value="blacklist"> Überall aktiv, <em>außer</em> auf den gelisteten Seiten</label>
+        <label><input type="radio" name="siteMode" value="whitelist"> Nur auf den gelisteten Seiten aktiv</label>
+      </fieldset>
+      <p class="help">Eine Domain pro Zeile, z. B. <code>reddit.com</code>. Subdomains sind eingeschlossen.</p>
+      <textarea id="sites" rows="5" spellcheck="false" placeholder="example.com"></textarea>
+    </section>
+
+    <div class="actions">
+      <button type="button" id="save">Speichern</button>
+      <span id="status" role="status"></span>
+    </div>
+  </main>
+
+  <script src="../src/storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Testseite – No Spoiler for GTA VI</title>
+  <style>
+    body { font: 16px/1.5 sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    article, .news-card, li { margin: 1rem 0; padding: 0.5rem 1rem; border: 1px solid #ccc; }
+    img, .thumb { width: 200px; height: 100px; background: #3a7; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Testseite</h1>
+
+  <h2>Container (Artikel)</h2>
+  <article id="a1">
+    <h3>Neuer Leak zu GTA VI aufgetaucht</h3>
+    <p>Die Karte soll riesig sein.</p>
+    <img id="img-in-container" alt="Vorschau" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px">
+  </article>
+
+  <article id="a2">
+    <h3>Harmloser Artikel</h3>
+    <p>Hier geht es um GTA V und Red Dead Redemption.</p>
+  </article>
+
+  <h2>Karte mit Link, Mehrzeiler und Bild</h2>
+  <article class="news-card" id="card" style="width:420px">
+    <img alt="Teaser" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:400px;height:120px;background:#3a7">
+    <a href="#card"><strong>GTA 6:</strong> Neuer Trailer zeigt Details, die lange Zeilen umbrechen lassen, damit mehrere Balken entstehen</a>
+    <span id="card-extra"></span>
+  </article>
+
+  <h2>Liste</h2>
+  <ul>
+    <li id="l1">Grand Theft Auto VI erscheint angeblich früher</li>
+    <li id="l2">Wetter morgen: sonnig</li>
+    <li id="l3"><a href="/x">#GTA6 trendet</a></li>
+  </ul>
+
+  <h2>Bild nur per Attribut</h2>
+  <img id="img-alt" alt="GTA 6 Screenshot" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px">
+  <img id="img-file" alt="" src="https://example.invalid/images/gta-vi-trailer.jpg" style="width:200px;height:100px">
+  <a href="/news/gta-6-release"><img id="img-link" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px"></a>
+  <img id="img-ok" alt="Katze" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px">
+
+  <h2>Absatz</h2>
+  <div id="wrap">
+    <p id="p1">Erster Absatz ohne Treffer.</p>
+    <p id="p2">Zweiter Absatz: GTA 6 kommt.</p>
+  </div>
+
+  <h2>Dynamisch nachgeladen</h2>
+  <button id="add">Nachladen</button>
+  <div id="dyn"></div>
+  <script>
+    document.getElementById('add').addEventListener('click', () => {
+      const a = document.createElement('article');
+      a.id = 'dyn-article';
+      a.textContent = 'Nachgeladen: Trailer zu Grand Theft Auto 6';
+      document.getElementById('dyn').appendChild(a);
+    });
+  </script>
+</body>
+</html>

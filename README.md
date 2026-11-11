@@ -1,6 +1,6 @@
 # No Spoiler for GTA VI
 
-Browser extension (Manifest V3) for **Chrome, Edge and Firefox**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. Alternatively, everything can be blurred or hidden completely. A click reveals an area again.
+Browser extension (Manifest V3) for **Chrome, Edge and Firefox**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. A click reveals an area again.
 
 ## Features
 

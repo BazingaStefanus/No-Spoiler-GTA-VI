@@ -1,6 +1,7 @@
 (async function () {
   'use strict';
 
+  const api = globalThis.browser ?? globalThis.chrome;
   const NSG = globalThis.NSG;
   const $ = (id) => document.getElementById(id);
   const radio = (name) => document.querySelector('input[name="' + name + '"]:checked');
@@ -20,6 +21,8 @@
     clearTimeout(statusTimer);
     statusTimer = setTimeout(() => ($('status').textContent = ''), 3000);
   }
+
+  $('version').textContent = 'v' + api.runtime.getManifest().version;
 
   const current = await NSG.load();
   fill(current);

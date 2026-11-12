@@ -16,6 +16,16 @@ h1 {
   padding-bottom: 10px;
   font-size: 22px;
   border-bottom: 4px solid #ff3e96;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.version {
+  font-size: 13px;
+  font-weight: normal;
+  color: #666;
 }
 
 section {
@@ -98,6 +108,7 @@ button.secondary {
   body { color: #eee; background: #121212; }
   section { background: #1e1e1e; box-shadow: none; }
   .help { color: #aaa; }
+  .version { color: #aaa; }
   textarea { color: #eee; background: #111; border-color: #444; }
   button { background: #ff3e96; color: #111; }
   button.secondary { color: #eee; background: #333; }

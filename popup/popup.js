@@ -10,6 +10,8 @@
   const $host = document.getElementById('host');
   const $hint = document.getElementById('hint');
 
+  document.getElementById('version').textContent = 'v' + api.runtime.getManifest().version;
+
   let settings = await NSG.load();
   let host = '';
 

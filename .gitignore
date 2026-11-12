@@ -11,3 +11,8 @@ web-ext-artifacts/
 .vscode/
 .idea/
 coverage/
+
+# Xcode (Safari container app)
+xcuserdata/
+*.xcuserstate
+DerivedData/

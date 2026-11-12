@@ -1,6 +1,6 @@
 # No Spoiler for GTA VI
 
-Browser extension (Manifest V3) for **Chrome, Edge and Firefox**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. A click reveals an area again.
+Browser extension (Manifest V3) for **Chrome, Edge, Firefox and Safari (macOS)**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. A click reveals an area again.
 
 ## Features
 
@@ -26,6 +26,17 @@ Optionally build the packages first: `./tools/build.sh` (creates `dist/`).
 
 To test the release build with the Firefox-specific settings (add-on ID, minimum version, data collection declaration), run `./tools/build.sh` first (requires Node.js) and select `dist/firefox/manifest.json` instead. These settings live in `tools/firefox-overrides.json` and are merged into `manifest.json` during the build.
 
+**Safari (macOS)**
+
+Safari only runs web extensions that are packaged in a macOS app. The Xcode project in `safari/` wraps the files from `dist/safari`, which `tools/build.sh` generates.
+
+1. Requirements: Xcode, and an Apple ID signed in under Xcode → Settings → Accounts (a free personal team is enough for your own Mac).
+2. Run `./tools/build_safari.sh`. It builds the extension files, builds and signs the app (team ID is read from your "Apple Development" certificate, or set `DEVELOPMENT_TEAM`), and opens the app once so Safari registers the extension.
+3. In Safari → Settings → Extensions, enable "No Spoiler for GTA VI".
+4. Grant website access: click the extension icon or use Settings → Extensions → "Edit Websites…" and choose "Allow" for all websites. Without it the content script does not run and the popup cannot read the current site.
+
+After code changes run `./tools/build_safari.sh` again. The built app lives in `build/safari/` and must stay there while the extension is in use.
+
 To publish permanently, upload the zips from `dist/` to the respective stores (Chrome Web Store, Edge Add-ons, addons.mozilla.org). Adjust the Firefox add-on ID in `tools/firefox-overrides.json` beforehand.
 
 ## Tests
@@ -35,6 +46,7 @@ To publish permanently, upload the zips from `dist/` to the respective stores (C
 
 ## Limitations
 
+- Safari does not support `options_ui.open_in_tab`, so the settings page may not open in its own tab there.
 - The tab title, address bar suggestions, content inside closed shadow DOM, and images without any context (CSS background only, with no keyword nearby) cannot be detected.
 - Container detection is a heuristic. Very large containers are narrowed down to paragraph level; any area can be revealed with a click (except in the "Hide completely" mode).
 - When redacting, a keyword stays readable only if it sits in a single text node; a match like "GTA <b>6</b>" (spanning several elements) is redacted along with the rest.
@@ -48,6 +60,7 @@ src/        storage.js · matcher.js · content.js · content.css
 popup/      Popup (on/off, per-site switch)
 options/    Settings page
 icons/      PNG icons (generated with tools/make_icons.py)
-tools/      build.sh · make_firefox_manifest.js · firefox-overrides.json · make_icons.py
+safari/     Xcode project for the Safari container app (macOS)
+tools/      build.sh · build_safari.sh · make_firefox_manifest.js · firefox-overrides.json · make_icons.py
 test/       Unit tests and manual test page
 ```

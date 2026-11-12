@@ -16,3 +16,6 @@ coverage/
 xcuserdata/
 *.xcuserstate
 DerivedData/
+
+# Private notes (not published)
+docs/

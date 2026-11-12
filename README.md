@@ -35,7 +35,7 @@ Safari only runs web extensions that are packaged in a macOS app. The Xcode proj
 3. In Safari → Settings → Extensions, enable "No Spoiler for GTA VI".
 4. Grant website access: click the extension icon or use Settings → Extensions → "Edit Websites…" and choose "Allow" for all websites. Without it the content script does not run and the popup cannot read the current site.
 
-After code changes run `./tools/build_safari.sh` again. The built app lives in `build/safari/` and must stay there while the extension is in use.
+After code changes run `./tools/build_safari.sh` again. The app version is taken from `manifest.json`. The built app lives in `build/safari/` and must stay there while the extension is in use.
 
 To publish permanently, upload the zips from `dist/` to the respective stores (Chrome Web Store, Edge Add-ons, addons.mozilla.org). Adjust the Firefox add-on ID in `tools/firefox-overrides.json` beforehand.
 

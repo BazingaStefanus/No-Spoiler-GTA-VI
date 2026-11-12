@@ -25,11 +25,15 @@ fi
 
 ./tools/build.sh
 
+# The app version always follows manifest.json.
+VERSION="$(node -p "require('./manifest.json').version")"
+
 xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIG" \
   -derivedDataPath "$DERIVED" -allowProvisioningUpdates \
-  DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" build -quiet
+  DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$VERSION" \
+  build -quiet
 
 APP="$DERIVED/Build/Products/$CONFIG/No Spoiler for GTA VI.app"
-echo "Built: $APP"
+echo "Built: $APP (version $VERSION)"
 open "$APP"
 echo "Now enable the extension in Safari → Settings → Extensions."

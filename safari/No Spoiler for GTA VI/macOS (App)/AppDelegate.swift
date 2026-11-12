@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  No Spoiler for GTA VI
+//  macOS (App)
 //
 //  Created by Steffen Todzy on 12.11.26.
 //

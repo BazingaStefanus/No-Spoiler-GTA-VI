@@ -13,8 +13,9 @@ from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 EXT_ICONS = ROOT / "icons"
-SAFARI_APP = ROOT / "safari" / "No Spoiler for GTA VI" / "No Spoiler for GTA VI"
+SAFARI_APP = ROOT / "safari" / "No Spoiler for GTA VI" / "Shared (App)"
 APPICONSET = SAFARI_APP / "Assets.xcassets" / "AppIcon.appiconset"
+LARGEICON = SAFARI_APP / "Assets.xcassets" / "LargeIcon.imageset"
 
 S = 1024  # drawing canvas; everything is drawn large and scaled down for smooth edges
 
@@ -104,8 +105,8 @@ def draw_palm(d):
     d.ellipse((crown[0] - 0.03 * S, crown[1] - 0.03 * S, crown[0] + 0.03 * S, crown[1] + 0.03 * S), fill=PALM)
 
 
-def artwork(level):
-    """Full-bleed rounded-square artwork at S x S for the given detail level."""
+def artwork(level, rounded=True):
+    """Full-bleed artwork at S x S for the given detail level; rounded=False gives the square iOS variant."""
     L = LAYOUT[level]
     simple = level != "full"
     HORIZON = L["horizon"]
@@ -162,7 +163,8 @@ def artwork(level):
     bar = bar.transform((S, S), Image.AFFINE, (1, 0, 0, 0, 1, -(cy - S / 2)), resample=Image.BICUBIC)
     img.alpha_composite(bar)
 
-    img.putalpha(rounded_mask())
+    if rounded:
+        img.putalpha(rounded_mask())
     return img
 
 
@@ -206,6 +208,9 @@ def main():
         for scale in (1, 2):
             scaled(mac_pick(pt * scale), pt * scale).save(set_dir / f"mac-icon-{pt}@{scale}x.png")
     scaled(full, 128).save((preview or SAFARI_APP / "Resources") / "Icon.png")
+    scaled(full, 128).save((preview or LARGEICON) / "icon128.png")
+    # iOS applies its own mask, so the icon is a square without rounded corners or transparency.
+    artwork("full", rounded=False).convert("RGB").save(set_dir / "universal-icon-1024@1x.png")
 
     if preview:
         sheet = Image.new("RGBA", (4 * 280, 560), (240, 240, 244, 255))

@@ -1,6 +1,6 @@
 # No Spoiler for GTA VI
 
-Browser extension (Manifest V3) for **Chrome, Edge, Firefox and Safari (macOS)**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. A click reveals an area again.
+Browser extension (Manifest V3) for **Chrome, Edge, Firefox and Safari (macOS and iOS)**. It hides GTA VI spoilers on web pages: text is covered **line by line with black bars**, like a redacted document (the layout is preserved; only the keywords themselves stay readable), and images and videos are blurred. A click reveals an area again.
 
 ## Features
 
@@ -28,7 +28,7 @@ To test the release build with the Firefox-specific settings (add-on ID, minimum
 
 **Safari (macOS)**
 
-Safari only runs web extensions that are packaged in a macOS app. The Xcode project in `safari/` wraps the files from `dist/safari`, which `tools/build.sh` generates.
+Safari only runs web extensions that are packaged in an app. The Xcode project in `safari/` (one project with a macOS and an iOS target) wraps the files from `dist/safari`, which `tools/build.sh` generates.
 
 1. Requirements: Xcode, and an Apple ID signed in under Xcode → Settings → Accounts (a free personal team is enough for your own Mac).
 2. Run `./tools/build_safari.sh`. It builds the extension files, builds and signs the app (team ID is read from your "Apple Development" certificate, or set `DEVELOPMENT_TEAM`), and opens the app once so Safari registers the extension.
@@ -36,6 +36,15 @@ Safari only runs web extensions that are packaged in a macOS app. The Xcode proj
 4. Grant website access: click the extension icon or use Settings → Extensions → "Edit Websites…" and choose "Allow" for all websites. Without it the content script does not run and the popup cannot read the current site.
 
 After code changes run `./tools/build_safari.sh` again. The app version is taken from `manifest.json`. The built app lives in `build/safari/` and must stay there while the extension is in use.
+
+**Safari (iOS)**
+
+1. Requirements: as for macOS, plus an iPhone with iOS 17 or newer, connected via USB (or paired over Wi-Fi) with Developer Mode enabled (Settings → Privacy & Security → Developer Mode).
+2. Run `./tools/build_ios.sh`. It builds and signs the iOS app, installs it on the first connected iPhone (set `DEVICE=<UDID>` to pick one; `xcrun devicectl list devices` shows them) and launches it.
+3. First install only: trust your developer profile on the iPhone under Settings → General → VPN & Device Management → your Apple ID → Trust, then open the app once.
+4. Enable the extension under Settings → Apps → Safari → Extensions → "No Spoiler for GTA VI", and allow it for all websites.
+
+With a free Apple account the app expires after 7 days; run `./tools/build_ios.sh` again to reinstall it. A paid Apple Developer Program membership removes that limit.
 
 To publish permanently, upload the zips from `dist/` to the respective stores (Chrome Web Store, Edge Add-ons, addons.mozilla.org). Adjust the Firefox add-on ID in `tools/firefox-overrides.json` beforehand.
 
@@ -60,7 +69,7 @@ src/        storage.js · matcher.js · content.js · content.css
 popup/      Popup (on/off, per-site switch)
 options/    Settings page
 icons/      PNG icons (generated with tools/make_icons.py, requires Pillow: pip install pillow)
-safari/     Xcode project for the Safari container app (macOS)
-tools/      build.sh · build_safari.sh · make_firefox_manifest.js · firefox-overrides.json · make_icons.py
+safari/     Xcode project for the Safari container apps (macOS and iOS)
+tools/      build.sh · build_safari.sh · build_ios.sh · apple_team.sh · make_firefox_manifest.js · firefox-overrides.json · make_icons.py
 test/       Unit tests and manual test page
 ```

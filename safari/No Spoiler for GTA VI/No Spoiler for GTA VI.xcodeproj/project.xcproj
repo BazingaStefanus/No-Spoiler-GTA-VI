@@ -13,25 +13,21 @@
   "files": [
     {
       "kind": "group",
-      "path": "No Spoiler for GTA VI",
+      "path": "Shared (App)",
       "children": [
-        { "path": "AppDelegate.swift", "target-membership": [ "No Spoiler for GTA VI/compile-sources" ] },
-        { "path": "ViewController.swift", "target-membership": [ "No Spoiler for GTA VI/compile-sources" ] },
         {
-          "kind": "variant-group",
-          "name": "Main.storyboard",
+          "path": "ViewController.swift",
           "target-membership": [
-            "No Spoiler for GTA VI/resources",
+            "No Spoiler for GTA VI (iOS)/compile-sources",
+            "No Spoiler for GTA VI (macOS)/compile-sources",
           ],
-          "children": [
-            {
-              "path": "Base.lproj/Main.storyboard",
-            },
+        }, {
+          "path": "Assets.xcassets",
+          "target-membership": [
+            "No Spoiler for GTA VI (iOS)/resources",
+            "No Spoiler for GTA VI (macOS)/resources",
           ],
-        },
-        { "path": "Assets.xcassets", "target-membership": [ "No Spoiler for GTA VI/resources" ] },
-        { "path": "Info.plist" },
-        {
+        }, {
           "kind": "group",
           "path": "Resources",
           "children": [
@@ -39,56 +35,166 @@
               "kind": "variant-group",
               "name": "Main.html",
               "target-membership": [
-                "No Spoiler for GTA VI/resources",
+                "No Spoiler for GTA VI (iOS)/resources",
+                "No Spoiler for GTA VI (macOS)/resources",
               ],
               "children": [
                 {
                   "path": "Base.lproj/Main.html",
                 },
               ],
+            }, {
+              "path": "Icon.png",
+              "target-membership": [
+                "No Spoiler for GTA VI (iOS)/resources",
+                "No Spoiler for GTA VI (macOS)/resources",
+              ],
+            }, {
+              "path": "Style.css",
+              "target-membership": [
+                "No Spoiler for GTA VI (iOS)/resources",
+                "No Spoiler for GTA VI (macOS)/resources",
+              ],
+            }, {
+              "path": "Script.js",
+              "target-membership": [
+                "No Spoiler for GTA VI (iOS)/resources",
+                "No Spoiler for GTA VI (macOS)/resources",
+              ],
             },
-            { "path": "Icon.png", "target-membership": [ "No Spoiler for GTA VI/resources" ] },
-            { "path": "Style.css", "target-membership": [ "No Spoiler for GTA VI/resources" ] },
-            { "path": "Script.js", "target-membership": [ "No Spoiler for GTA VI/resources" ] },
           ],
         },
       ],
     }, {
       "kind": "group",
-      "path": "No Spoiler for GTA VI Extension",
+      "path": "Shared (Extension)",
       "children": [
         {
           "kind": "group",
-          "path": "<PROJECT>/No Spoiler for GTA VI Extension",
+          "path": "<PROJECT>/Shared (Extension)",
           "name": "Resources",
           "children": [
-            { "path": "../../../dist/safari/options", "target-membership": [ "No Spoiler for GTA VI Extension/resources" ] },
-            { "path": "../../../dist/safari/popup", "target-membership": [ "No Spoiler for GTA VI Extension/resources" ] },
-            { "path": "../../../dist/safari/icons", "target-membership": [ "No Spoiler for GTA VI Extension/resources" ] },
-            { "path": "../../../dist/safari/manifest.json", "target-membership": [ "No Spoiler for GTA VI Extension/resources" ] },
-            { "path": "../../../dist/safari/src", "target-membership": [ "No Spoiler for GTA VI Extension/resources" ] },
+            {
+              "path": "../../../dist/safari/options",
+              "target-membership": [
+                "No Spoiler for GTA VI Extension (iOS)/resources",
+                "No Spoiler for GTA VI Extension (macOS)/resources",
+              ],
+            }, {
+              "path": "../../../dist/safari/popup",
+              "target-membership": [
+                "No Spoiler for GTA VI Extension (iOS)/resources",
+                "No Spoiler for GTA VI Extension (macOS)/resources",
+              ],
+            }, {
+              "path": "../../../dist/safari/icons",
+              "target-membership": [
+                "No Spoiler for GTA VI Extension (iOS)/resources",
+                "No Spoiler for GTA VI Extension (macOS)/resources",
+              ],
+            }, {
+              "path": "../../../dist/safari/manifest.json",
+              "target-membership": [
+                "No Spoiler for GTA VI Extension (iOS)/resources",
+                "No Spoiler for GTA VI Extension (macOS)/resources",
+              ],
+            }, {
+              "path": "../../../dist/safari/src",
+              "target-membership": [
+                "No Spoiler for GTA VI Extension (iOS)/resources",
+                "No Spoiler for GTA VI Extension (macOS)/resources",
+              ],
+            },
+          ],
+        }, {
+          "path": "SafariWebExtensionHandler.swift",
+          "target-membership": [
+            "No Spoiler for GTA VI Extension (iOS)/compile-sources",
+            "No Spoiler for GTA VI Extension (macOS)/compile-sources",
           ],
         },
-        { "path": "SafariWebExtensionHandler.swift", "target-membership": [ "No Spoiler for GTA VI Extension/compile-sources" ] },
+      ],
+    }, {
+      "kind": "group",
+      "path": "iOS (App)",
+      "children": [
+        { "path": "AppDelegate.swift", "target-membership": [ "No Spoiler for GTA VI (iOS)/compile-sources" ] },
+        { "path": "SceneDelegate.swift", "target-membership": [ "No Spoiler for GTA VI (iOS)/compile-sources" ] },
+        {
+          "kind": "variant-group",
+          "name": "LaunchScreen.storyboard",
+          "target-membership": [
+            "No Spoiler for GTA VI (iOS)/resources",
+          ],
+          "children": [
+            {
+              "path": "Base.lproj/LaunchScreen.storyboard",
+            },
+          ],
+        }, {
+          "kind": "variant-group",
+          "name": "Main.storyboard",
+          "target-membership": [
+            "No Spoiler for GTA VI (iOS)/resources",
+          ],
+          "children": [
+            {
+              "path": "Base.lproj/Main.storyboard",
+            },
+          ],
+        },
+        { "path": "Info.plist" },
+      ],
+    }, {
+      "kind": "group",
+      "path": "macOS (App)",
+      "children": [
+        { "path": "AppDelegate.swift", "target-membership": [ "No Spoiler for GTA VI (macOS)/compile-sources" ] },
+        {
+          "kind": "variant-group",
+          "name": "Main.storyboard",
+          "target-membership": [
+            "No Spoiler for GTA VI (macOS)/resources",
+          ],
+          "children": [
+            {
+              "path": "Base.lproj/Main.storyboard",
+            },
+          ],
+        },
+        { "path": "Info.plist" },
+      ],
+    }, {
+      "kind": "group",
+      "path": "iOS (Extension)",
+      "children": [
+        { "path": "Info.plist" },
+      ],
+    }, {
+      "kind": "group",
+      "path": "macOS (Extension)",
+      "children": [
         { "path": "Info.plist" },
       ],
     }, {
       "kind": "group",
       "name": "Products",
       "children": [
-        { "path": "<PRODUCTS>/No Spoiler for GTA VI.app", "id": "6720D28830A6531500390DB4", "type": "wrapper.application", "index": false },
-        { "path": "<PRODUCTS>/No Spoiler for GTA VI Extension.appex", "id": "6720D2A330A6531600390DB4", "type": "wrapper.app-extension", "index": false, "target-membership": [ { "build-phase": "No Spoiler for GTA VI/copy/Embed Foundation Extensions", "header-preservation": "remove-on-copy" } ] },
+        { "path": "<PRODUCTS>/No Spoiler for GTA VI.app", "id": "67B648B330A659E9003C9671", "type": "wrapper.application", "index": false },
+        { "path": "<PRODUCTS>/No Spoiler for GTA VI.app", "id": "67B648C530A659E9003C9671", "type": "wrapper.application", "index": false },
+        { "path": "<PRODUCTS>/No Spoiler for GTA VI Extension.appex", "id": "67B648D130A659EA003C9671", "type": "wrapper.app-extension", "index": false, "target-membership": [ { "build-phase": "No Spoiler for GTA VI (iOS)/copy/Embed Foundation Extensions", "header-preservation": "remove-on-copy" } ] },
+        { "path": "<PRODUCTS>/No Spoiler for GTA VI Extension.appex", "id": "67B648DB30A659EA003C9671", "type": "wrapper.app-extension", "index": false, "target-membership": [ { "build-phase": "No Spoiler for GTA VI (macOS)/copy/Embed Foundation Extensions", "header-preservation": "remove-on-copy" } ] },
       ],
     },
   ],
   "targets": [
     {
-      "name": "No Spoiler for GTA VI",
-      "id": "6720D28730A6531500390DB4",
-      "product": "Products/No Spoiler for GTA VI.app",
+      "name": "No Spoiler for GTA VI (iOS)",
+      "id": "67B648B230A659E9003C9671",
+      "product": "id:67B648B330A659E9003C9671",
       "product-type": "application",
       "dependencies": [
-        "No Spoiler for GTA VI Extension",
+        "No Spoiler for GTA VI Extension (iOS)",
       ],
       "build-phases": [
         "compile-sources",
@@ -104,22 +210,19 @@
         "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
         "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
         "CODE_SIGN_STYLE": "Automatic",
-        "COMBINE_HIDPI_IMAGES": "YES",
         "CURRENT_PROJECT_VERSION": "1",
-        "ENABLE_APP_SANDBOX": "YES",
-        "ENABLE_HARDENED_RUNTIME": "YES",
-        "ENABLE_OUTGOING_NETWORK_CONNECTIONS": "YES",
-        "ENABLE_USER_SELECTED_FILES": "readonly",
         "GENERATE_INFOPLIST_FILE": "YES",
-        "INFOPLIST_FILE": "No Spoiler for GTA VI/Info.plist",
+        "INFOPLIST_FILE": "iOS (App)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI",
-        "INFOPLIST_KEY_NSHumanReadableCopyright": "",
-        "INFOPLIST_KEY_NSMainStoryboardFile": "Main",
-        "INFOPLIST_KEY_NSPrincipalClass": "NSApplication",
-        "INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive": "NO",
+        "INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents": "YES",
+        "INFOPLIST_KEY_UILaunchStoryboardName": "LaunchScreen",
+        "INFOPLIST_KEY_UIMainStoryboardFile": "Main",
+        "INFOPLIST_KEY_UISupportedInterfaceOrientations": "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight",
+        "INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad": "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0",
         "LD_RUNPATH_SEARCH_PATHS": [
           "$(inherited)",
-          "@executable_path/../Frameworks",
+          "@executable_path/Frameworks",
         ],
         "MARKETING_VERSION": "1.0",
         "OTHER_LDFLAGS": [
@@ -129,8 +232,65 @@
           "WebKit",
         ],
         "PRODUCT_BUNDLE_IDENTIFIER": "io.github.bazingastefanus.nospoilergtavi",
-        "PRODUCT_NAME": "$(TARGET_NAME)",
+        "PRODUCT_NAME": "No Spoiler for GTA VI",
+        "SDKROOT": "iphoneos",
+        "STRING_CATALOG_GENERATE_SYMBOLS": "YES",
+        "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
+        "SWIFT_DEFAULT_ACTOR_ISOLATION": "MainActor",
+        "SWIFT_EMIT_LOC_STRINGS": "YES",
+        "SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY": "YES",
+        "SWIFT_VERSION": "5.0",
+        "TARGETED_DEVICE_FAMILY": "1,2",
+        "VALIDATE_PRODUCT[config=Release]": "YES",
+      },
+    }, {
+      "name": "No Spoiler for GTA VI (macOS)",
+      "id": "67B648C430A659E9003C9671",
+      "product": "id:67B648C530A659E9003C9671",
+      "product-type": "application",
+      "dependencies": [
+        "No Spoiler for GTA VI Extension (macOS)",
+      ],
+      "build-phases": [
+        "compile-sources",
+        "frameworks",
+        "resources",
+        {
+          "kind": "copy",
+          "name": "Embed Foundation Extensions",
+          "bundle-base-path": "plugins-directory",
+        },
+      ],
+      "build-settings": {
+        "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+        "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
+        "CODE_SIGN_STYLE": "Automatic",
+        "CURRENT_PROJECT_VERSION": "1",
+        "ENABLE_APP_SANDBOX": "YES",
+        "ENABLE_HARDENED_RUNTIME": "YES",
+        "ENABLE_OUTGOING_NETWORK_CONNECTIONS": "YES",
+        "ENABLE_USER_SELECTED_FILES": "readonly",
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "INFOPLIST_FILE": "macOS (App)/Info.plist",
+        "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI",
+        "INFOPLIST_KEY_NSMainStoryboardFile": "Main",
+        "INFOPLIST_KEY_NSPrincipalClass": "NSApplication",
+        "LD_RUNPATH_SEARCH_PATHS": [
+          "$(inherited)",
+          "@executable_path/../Frameworks",
+        ],
+        "MACOSX_DEPLOYMENT_TARGET": "12.0",
+        "MARKETING_VERSION": "1.0",
+        "OTHER_LDFLAGS": [
+          "-framework",
+          "SafariServices",
+          "-framework",
+          "WebKit",
+        ],
+        "PRODUCT_BUNDLE_IDENTIFIER": "io.github.bazingastefanus.nospoilergtavi",
+        "PRODUCT_NAME": "No Spoiler for GTA VI",
         "REGISTER_APP_GROUPS": "YES",
+        "SDKROOT": "macosx",
         "STRING_CATALOG_GENERATE_SYMBOLS": "YES",
         "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
         "SWIFT_DEFAULT_ACTOR_ISOLATION": "MainActor",
@@ -139,9 +299,49 @@
         "SWIFT_VERSION": "5.0",
       },
     }, {
-      "name": "No Spoiler for GTA VI Extension",
-      "id": "6720D2A230A6531600390DB4",
-      "product": "Products/No Spoiler for GTA VI Extension.appex",
+      "name": "No Spoiler for GTA VI Extension (iOS)",
+      "id": "67B648D030A659EA003C9671",
+      "product": "id:67B648D130A659EA003C9671",
+      "product-type": "app-extension",
+      "build-phases": [
+        "compile-sources",
+        "frameworks",
+        "resources",
+      ],
+      "build-settings": {
+        "CODE_SIGN_STYLE": "Automatic",
+        "CURRENT_PROJECT_VERSION": "1",
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "INFOPLIST_FILE": "iOS (Extension)/Info.plist",
+        "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI Extension",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "LD_RUNPATH_SEARCH_PATHS": [
+          "$(inherited)",
+          "@executable_path/Frameworks",
+          "@executable_path/../../Frameworks",
+        ],
+        "MARKETING_VERSION": "1.0",
+        "OTHER_LDFLAGS": [
+          "-framework",
+          "SafariServices",
+        ],
+        "PRODUCT_BUNDLE_IDENTIFIER": "io.github.bazingastefanus.nospoilergtavi.Extension",
+        "PRODUCT_NAME": "No Spoiler for GTA VI Extension",
+        "SDKROOT": "iphoneos",
+        "SKIP_INSTALL": "YES",
+        "STRING_CATALOG_GENERATE_SYMBOLS": "YES",
+        "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
+        "SWIFT_EMIT_LOC_STRINGS": "YES",
+        "SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY": "YES",
+        "SWIFT_VERSION": "5.0",
+        "TARGETED_DEVICE_FAMILY": "1,2",
+        "VALIDATE_PRODUCT[config=Release]": "YES",
+      },
+    }, {
+      "name": "No Spoiler for GTA VI Extension (macOS)",
+      "id": "67B648DA30A659EA003C9671",
+      "product": "id:67B648DB30A659EA003C9671",
       "product-type": "app-extension",
       "build-phases": [
         "compile-sources",
@@ -155,7 +355,7 @@
         "ENABLE_HARDENED_RUNTIME": "YES",
         "ENABLE_USER_SELECTED_FILES": "readonly",
         "GENERATE_INFOPLIST_FILE": "YES",
-        "INFOPLIST_FILE": "No Spoiler for GTA VI Extension/Info.plist",
+        "INFOPLIST_FILE": "macOS (Extension)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI Extension",
         "INFOPLIST_KEY_NSHumanReadableCopyright": "",
         "LD_RUNPATH_SEARCH_PATHS": [
@@ -170,7 +370,8 @@
           "SafariServices",
         ],
         "PRODUCT_BUNDLE_IDENTIFIER": "io.github.bazingastefanus.nospoilergtavi.Extension",
-        "PRODUCT_NAME": "$(TARGET_NAME)",
+        "PRODUCT_NAME": "No Spoiler for GTA VI Extension",
+        "SDKROOT": "macosx",
         "SKIP_INSTALL": "YES",
         "STRING_CATALOG_GENERATE_SYMBOLS": "YES",
         "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
@@ -233,12 +434,10 @@
     "GCC_WARN_UNUSED_FUNCTION": "YES",
     "GCC_WARN_UNUSED_VARIABLE": "YES",
     "LOCALIZATION_PREFERS_STRING_CATALOGS": "YES",
-    "MACOSX_DEPLOYMENT_TARGET": "27.2",
     "MTL_ENABLE_DEBUG_INFO[config=Debug]": "INCLUDE_SOURCE",
     "MTL_ENABLE_DEBUG_INFO[config=Release]": "NO",
     "MTL_FAST_MATH": "YES",
     "ONLY_ACTIVE_ARCH[config=Debug]": "YES",
-    "SDKROOT": "macosx",
     "SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug]": "DEBUG $(inherited)",
     "SWIFT_COMPILATION_MODE[config=Release]": "wholemodule",
     "SWIFT_OPTIMIZATION_LEVEL[config=Debug]": "-Onone",

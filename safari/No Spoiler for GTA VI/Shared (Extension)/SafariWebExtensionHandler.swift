@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  No Spoiler for GTA VI Extension
+//  Shared (Extension)
 //
 //  Created by Steffen Todzy on 12.11.26.
 //

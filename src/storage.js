@@ -18,7 +18,6 @@
     'GTA VI Rumors',
     'GTA 6 Rumors',
     'Leonida',
-    'Leonida',
     'Leonidas',
     'Lucia Caminos',
     'Jason Duval',

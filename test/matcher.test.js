@@ -26,6 +26,11 @@ test('Default keywords are detected', () => {
   }
 });
 
+test('Default keywords contain no duplicates', () => {
+  const lower = NSG.DEFAULT_KEYWORDS.map((k) => k.toLowerCase());
+  assert.equal(new Set(lower).size, lower.length);
+});
+
 test('Similar terms are not detected', () => {
   for (const t of ['GTA V', 'GTA 5', 'GTA 60', 'Grand Theft Auto V', 'GTAVIP', 'AGTA 6', 'Grand Theft Auto 5']) {
     assert.ok(!re.test(t), t);

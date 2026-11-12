@@ -11,7 +11,7 @@ cp -R "${FILES[@]}" dist/chrome-edge/
 cp manifest.json dist/chrome-edge/manifest.json
 
 cp -R "${FILES[@]}" dist/firefox/
-cp manifest.firefox.json dist/firefox/manifest.json
+node tools/make_firefox_manifest.js > dist/firefox/manifest.json
 
 (cd dist/chrome-edge && zip -qr ../chrome-edge.zip . -x '*.DS_Store')
 (cd dist/firefox && zip -qr ../firefox.zip . -x '*.DS_Store')

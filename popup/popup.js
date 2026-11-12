@@ -18,24 +18,24 @@
     const url = new URL(tab.url);
     if (/^https?:$/.test(url.protocol)) host = NSG.normalizeHost(url.hostname);
   } catch (_) {
-    // Kein Zugriff auf die URL (z. B. interne Browserseiten)
+    // No access to the URL (e.g. internal browser pages)
   }
 
   function render() {
     $enabled.checked = settings.enabled;
     if (!host) {
-      $host.textContent = 'dieser Seite';
+      $host.textContent = 'this site';
       $site.checked = false;
       $site.disabled = true;
       $siteRow.classList.add('disabled');
-      $hint.textContent = 'Für diese Seite nicht verfügbar.';
+      $hint.textContent = 'Not available on this page.';
       return;
     }
     $host.textContent = host;
     $site.disabled = !settings.enabled;
     $siteRow.classList.toggle('disabled', !settings.enabled);
     $site.checked = NSG.isSiteActive(settings, host);
-    $hint.textContent = settings.enabled ? 'Änderungen gelten sofort. Neu laden ist nicht nötig.' : 'Spoilerschutz ist global ausgeschaltet.';
+    $hint.textContent = settings.enabled ? 'Changes apply immediately. No reload needed.' : 'Spoiler protection is turned off globally.';
   }
 
   $enabled.addEventListener('change', async () => {

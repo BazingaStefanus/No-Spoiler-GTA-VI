@@ -1,14 +1,14 @@
-/* Modus wird über data-nsg-mode auf <html> gesteuert (blackout | blur | hide). */
+/* The mode is controlled via data-nsg-mode on <html> (blackout | blur | hide). */
 
-/* ---------- Gemeinsam ---------- */
+/* ---------- Shared ---------- */
 .nsg-hidden:not(.nsg-revealed) {
   cursor: pointer !important;
   user-select: none !important;
 }
 
-/* ---------- Schwärzen ----------
-   Text: schwarze Balken über die CSS Custom Highlight API (siehe content.js).
-   Bilder/Videos: unscharf. */
+/* ---------- Redact ----------
+   Text: black bars via the CSS Custom Highlight API (see content.js).
+   Images/videos: blurred. */
 ::highlight(nsg-redact) {
   color: #000;
   -webkit-text-fill-color: #000;
@@ -16,7 +16,7 @@
   text-shadow: none;
 }
 
-/* Dunkle Seiten: weiße Balken */
+/* Dark pages: white bars */
 ::highlight(nsg-redact-light) {
   color: #fff;
   -webkit-text-fill-color: #fff;
@@ -34,7 +34,7 @@ html[data-nsg-mode="blackout"] .nsg-media:not(.nsg-revealed) {
   clip-path: inset(0) !important;
 }
 
-/* ---------- Unscharf ---------- */
+/* ---------- Blur ---------- */
 html[data-nsg-mode="blur"] .nsg-block:not(.nsg-revealed) {
   filter: blur(10px) !important;
 }
@@ -42,12 +42,12 @@ html[data-nsg-mode="blur"] .nsg-media:not(.nsg-revealed) {
   filter: blur(24px) !important;
 }
 
-/* ---------- Komplett ausblenden ---------- */
+/* ---------- Hide completely ---------- */
 html[data-nsg-mode="hide"] .nsg-hidden {
   display: none !important;
 }
 
-/* iframes/Videos fangen sonst den Klick zum Aufdecken ab */
+/* Otherwise iframes/videos would swallow the click that reveals the area */
 .nsg-hidden:not(.nsg-revealed) :is(iframe, video, object, embed, .nsg-media-host),
 iframe.nsg-hidden:not(.nsg-revealed),
 video.nsg-hidden:not(.nsg-revealed) {

@@ -36,7 +36,7 @@
     mode: 'blackout', // blackout | blur | hide
     granularity: 'container', // container | paragraph
     hideMedia: true,
-    siteMode: 'blacklist', // blacklist: überall aktiv außer gelistet | whitelist: nur gelistet aktiv
+    siteMode: 'blacklist', // blacklist: active everywhere except listed sites | whitelist: active only on listed sites
     sites: []
   };
 
@@ -46,7 +46,7 @@
     return String(host || '').trim().toLowerCase().replace(/^www\./, '');
   }
 
-  // Akzeptiert auch komplette URLs und reduziert sie auf den Hostnamen.
+  // Also accepts full URLs and reduces them to the host name.
   function normalizeDomain(input) {
     let s = String(input || '').trim().toLowerCase();
     if (!s) return '';

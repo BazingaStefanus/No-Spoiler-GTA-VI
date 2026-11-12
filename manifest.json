@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "No Spoiler for GTA VI",
   "version": "1.0.0",
-  "description": "Blendet Spoiler zu GTA VI auf Webseiten aus: Texte werden geschwärzt, Bilder und Videos unkenntlich gemacht.",
+  "description": "Hides GTA VI spoilers on web pages: text is redacted, images and videos are obscured.",
   "permissions": ["storage", "activeTab"],
   "icons": {
     "16": "icons/icon16.png",

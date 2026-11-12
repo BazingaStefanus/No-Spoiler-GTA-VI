@@ -5,7 +5,7 @@ require('../src/matcher.js');
 
 const re = NSG.buildMatcher(NSG.DEFAULT_KEYWORDS);
 
-test('Standard-Keywords werden erkannt', () => {
+test('Default keywords are detected', () => {
   for (const t of [
     'GTA 6',
     'gta vi',
@@ -26,21 +26,21 @@ test('Standard-Keywords werden erkannt', () => {
   }
 });
 
-test('Ähnliche Begriffe werden nicht erkannt', () => {
+test('Similar terms are not detected', () => {
   for (const t of ['GTA V', 'GTA 5', 'GTA 60', 'Grand Theft Auto V', 'GTAVIP', 'AGTA 6', 'Grand Theft Auto 5']) {
     assert.ok(!re.test(t), t);
   }
 });
 
-test('Leere Keyword-Liste ergibt null, Sonderzeichen werden escaped', () => {
+test('Empty keyword list yields null, special characters are escaped', () => {
   assert.equal(NSG.buildMatcher([]), null);
   assert.equal(NSG.buildMatcher(['  ', '']), null);
-  const r = NSG.buildMatcher(['C++ (neu)']);
-  assert.ok(r.test('Das ist C++ (neu) hier'));
-  assert.ok(!r.test('C (neu)'));
+  const r = NSG.buildMatcher(['C++ (new)']);
+  assert.ok(r.test('This is C++ (new) here'));
+  assert.ok(!r.test('C (new)'));
 });
 
-test('Seitenlogik Blacklist/Whitelist inkl. Subdomains', () => {
+test('Site logic for blacklist/whitelist including subdomains', () => {
   const black = NSG.normalize({ siteMode: 'blacklist', sites: ['example.com'] });
   assert.equal(NSG.isSiteActive(black, 'www.example.com'), false);
   assert.equal(NSG.isSiteActive(black, 'news.example.com'), false);
@@ -51,7 +51,7 @@ test('Seitenlogik Blacklist/Whitelist inkl. Subdomains', () => {
   assert.equal(NSG.isSiteActive(white, 'other.org'), false);
 });
 
-test('setSiteActive schaltet Einträge korrekt um', () => {
+test('setSiteActive toggles entries correctly', () => {
   const black = NSG.normalize({ siteMode: 'blacklist', sites: [] });
   assert.deepEqual(NSG.setSiteActive(black, 'www.a.com', false), ['a.com']);
   assert.deepEqual(NSG.setSiteActive({ ...black, sites: ['a.com'] }, 'a.com', true), []);
@@ -60,7 +60,7 @@ test('setSiteActive schaltet Einträge korrekt um', () => {
   assert.deepEqual(NSG.setSiteActive({ ...white, sites: ['a.com'] }, 'a.com', false), []);
 });
 
-test('normalizeDomain und parseLines', () => {
+test('normalizeDomain and parseLines', () => {
   assert.equal(NSG.normalizeDomain('https://www.Reddit.com/r/gaming?x=1'), 'reddit.com');
   assert.equal(NSG.normalizeDomain('  '), '');
   assert.deepEqual(NSG.parseLines('a\n\nA\n b \n'), ['a', 'b']);

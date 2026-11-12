@@ -11,7 +11,7 @@
   const REVEALED = 'nsg-revealed';
   const WRAP = 'nsg-wrap';
 
-  const MAX_CONTAINER_TEXT = 2500; // größere Container (z. B. ganze Artikelseiten) → Absatzebene
+  const MAX_CONTAINER_TEXT = 2500; // larger containers (e.g. whole article pages) → paragraph level
   const MAX_BLOCK_TEXT = 5000;
   const MAX_DEPTH = 15;
 
@@ -24,15 +24,15 @@
   const MEDIA_ATTRS = ['alt', 'title', 'src', 'srcset', 'data-src', 'data-srcset', 'data-original', 'poster', 'aria-label'];
 
   let re = null;
-  let reAll = null; // globale Variante zum Finden aller Treffer in einem Textknoten
+  let reAll = null; // global variant for finding all matches in a text node
   let cfg = null;
   let observer = null;
   let rafId = 0;
   const pendingNodes = new Set();
   const pendingMedia = new Set();
 
-  // Schwärzen: Text bekommt per CSS Custom Highlight API schwarze Balken (keine DOM-Änderung, Layout bleibt).
-  // Auf dunklen Hintergründen werden die Balken stattdessen weiß (zweite Highlight).
+  // Redaction: text gets black bars via the CSS Custom Highlight API (no DOM changes, layout is preserved).
+  // On dark backgrounds the bars are white instead (second highlight).
   const HIGHLIGHT = 'nsg-redact';
   const HIGHLIGHT_LIGHT = 'nsg-redact-light';
   const SWEEP_INTERVAL = 5000;
@@ -43,10 +43,10 @@
   let themeTimer = 0;
   let themeObserver = null;
   let themeQuery = null;
-  let rangeOfNode = new WeakMap(); // Textknoten → { ranges, target }
+  let rangeOfNode = new WeakMap(); // text node → { ranges, target }
   let lastSweep = 0;
 
-  // ---------- Hilfsfunktionen ----------
+  // ---------- Helpers ----------
 
   function safeDecode(s) {
     try {
@@ -98,7 +98,7 @@
     return null;
   }
 
-  // Medien in offenen Shadow-Roots (z. B. Reddit: shreddit-player-2) sind für Selektoren und CSS von außen unsichtbar.
+  // Media in open shadow roots (e.g. Reddit: shreddit-player-2) is invisible to selectors and CSS from outside.
   function deepQueryAll(root, selector, out = []) {
     if (root.querySelectorAll) {
       root.querySelectorAll(selector).forEach((n) => out.push(n));
@@ -112,7 +112,7 @@
     deepQueryAll(el, 'video').forEach((v) => v.pause());
   }
 
-  // Markiert die äußersten Shadow-Hosts im Container, die Medien enthalten; CSS unscharf-stellt dann den Host.
+  // Marks the shadow hosts in the container that contain media; CSS then blurs the host.
   function markShadowMedia(target) {
     if (!cfg || !cfg.hideMedia || !target.isConnected) return;
     const hosts = [];
@@ -129,14 +129,14 @@
     pauseVideos(target);
   }
 
-  // Player werden oft verzögert gerendert → mehrfach nachprüfen.
+  // Players are often rendered late → check again several times.
   function markShadowMediaLater(target) {
     for (const delay of [400, 1500, 4000]) {
       setTimeout(() => cfg && target.classList.contains(BLOCK) && markShadowMedia(target), delay);
     }
   }
 
-  // ---------- Schwärzen (Balken hinter dem Text) ----------
+  // ---------- Redaction (bars behind the text) ----------
 
   function hlFor(white) {
     return white ? highlightLight : highlight;
@@ -154,7 +154,7 @@
     return (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) / 255;
   }
 
-  // Dunkel = erster deckender Hintergrund eines Vorfahren ist dunkel; ohne Hintergrund entscheidet die Textfarbe.
+  // Dark = the first opaque ancestor background is dark; without a background the text color decides.
   function isDarkContext(el) {
     for (let cur = el; cur; cur = cur.parentElement) {
       const bg = parseColor(getComputedStyle(cur).backgroundColor);
@@ -184,11 +184,11 @@
     rangeOfNode.delete(node);
   }
 
-  // Schwärzt den Text, spart aber die Keyword-Treffer aus (Segmente zwischen den Treffern).
+  // Redacts the text but leaves the keyword matches readable (segments between the matches).
   function redactText(node) {
     const target = node.parentElement && node.parentElement.closest('.' + BLOCK);
     if (!target) return;
-    unredactText(node); // Ranges müssen nach geänderten Textdaten neu aufgebaut werden
+    unredactText(node); // ranges must be rebuilt after the text data changed
 
     const text = node.nodeValue;
     const ranges = [];
@@ -220,7 +220,7 @@
     rangeOfNode.set(node, { ranges, target });
   }
 
-  // Prüft alle verborgenen Container erneut (Theme-Wechsel, Stylesheets nachgeladen) und verschiebt die Balken.
+  // Re-checks all hidden containers (theme change, late-loaded stylesheets) and moves the bars.
   function reclassify() {
     themeTimer = 0;
     if (!highlight) return;
@@ -271,7 +271,7 @@
     rangesByTarget.delete(target);
   }
 
-  // Entfernt Ranges von Knoten, die aus dem DOM verschwunden sind.
+  // Removes ranges of nodes that have left the DOM.
   function sweep() {
     lastSweep = Date.now();
     for (const [target, entry] of rangesByTarget) {
@@ -292,7 +292,7 @@
     return el && el.closest('.' + BLOCK + ':not(.' + REVEALED + ')');
   }
 
-  // ---------- Verbergen ----------
+  // ---------- Hiding ----------
 
   function hideText(textNode) {
     const parent = textNode.parentElement;
@@ -301,7 +301,7 @@
 
     let target = findTarget(textNode);
     if (!target) {
-      // Kein sinnvoller Container: Textknoten einzeln umhüllen.
+      // No suitable container: wrap the text node on its own.
       target = document.createElement('span');
       target.className = WRAP;
       textNode.parentNode.replaceChild(target, textNode);
@@ -347,7 +347,7 @@
     }
   }
 
-  // ---------- Scannen ----------
+  // ---------- Scanning ----------
 
   function acceptText(n) {
     const p = n.parentElement;
@@ -373,7 +373,7 @@
 
   function processNode(n) {
     if (!n.isConnected) return;
-    // Neuer Text in einem bereits verborgenen Container wird ebenfalls geschwärzt.
+    // New text inside an already hidden container is redacted as well.
     const hidden = hiddenAncestor(n);
     if (hidden) {
       if (cfg.mode === 'blackout') redactWithin(n);
@@ -411,7 +411,7 @@
     schedule();
   }
 
-  // ---------- Lebenszyklus ----------
+  // ---------- Lifecycle ----------
 
   function teardown() {
     if (observer) observer.disconnect();
@@ -459,7 +459,7 @@
     reAll = new RegExp(re.source, 'giu');
     cfg = settings;
 
-    // Ohne Highlight-API (alte Browser) wird auf Unscharf zurückgefallen.
+    // Without the Highlight API (old browsers), fall back to blur.
     if (settings.mode === 'blackout') {
       if (globalThis.CSS && CSS.highlights && globalThis.Highlight) {
         highlight = new Highlight();
@@ -483,7 +483,7 @@
     });
 
     if (highlight) {
-      // Theme-Wechsel: System-Einstellung, Klassen/Attribute an <html>/<body> sowie fertig geladene Stylesheets
+      // Theme changes: system setting, classes/attributes on <html>/<body>, and stylesheets that finished loading
       themeQuery = matchMedia('(prefers-color-scheme: dark)');
       themeQuery.addEventListener('change', scheduleReclassify);
       themeObserver = new MutationObserver(scheduleReclassify);
@@ -500,7 +500,7 @@
     initial();
   }
 
-  // Klick deckt verborgene Bereiche auf (und verhindert, dass dabei Links geöffnet werden).
+  // A click reveals hidden areas (and prevents links from opening while doing so).
   document.addEventListener(
     'click',
     (e) => {

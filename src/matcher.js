@@ -5,7 +5,7 @@
     return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // "GTA 6" erkennt auch "GTA6", "gta-6", "GTA_6". Satzzeichen wie ":" bleiben Pflichtzeichen.
+  // "GTA 6" also matches "GTA6", "gta-6", "GTA_6". Punctuation such as ":" stays mandatory.
   function keywordToPattern(keyword) {
     return keyword
       .trim()
@@ -15,7 +15,7 @@
       .join('[\\s\\u00a0\\-_]*');
   }
 
-  // Liefert ein RegExp (ohne g-Flag, daher zustandslos mit .test) oder null.
+  // Returns a RegExp (without the g flag, so stateless with .test) or null.
   function buildMatcher(keywords) {
     const patterns = (keywords || [])
       .map((k) => String(k || '').trim())

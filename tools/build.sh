@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Erzeugt dist/chrome-edge.zip und dist/firefox.zip (plus entpackte Ordner zum Laden im Browser).
+# Builds dist/chrome-edge.zip and dist/firefox.zip (plus unpacked folders for loading in the browser).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -16,4 +16,4 @@ cp manifest.firefox.json dist/firefox/manifest.json
 (cd dist/chrome-edge && zip -qr ../chrome-edge.zip . -x '*.DS_Store')
 (cd dist/firefox && zip -qr ../firefox.zip . -x '*.DS_Store')
 
-echo "Fertig: dist/chrome-edge.zip, dist/firefox.zip"
+echo "Done: dist/chrome-edge.zip, dist/firefox.zip"

@@ -31,7 +31,7 @@
   $('save').addEventListener('click', async () => {
     const keywords = NSG.parseLines($('keywords').value);
     const sites = NSG.parseLines($('sites').value, NSG.normalizeDomain);
-    const latest = await NSG.load(); // enabled-Status aus dem Popup nicht überschreiben
+    const latest = await NSG.load(); // do not overwrite the enabled state set in the popup
     await NSG.save({
       ...latest,
       keywords,
@@ -42,6 +42,6 @@
       siteMode: radio('siteMode').value
     });
     $('sites').value = sites.join('\n');
-    setStatus(keywords.length ? 'Gespeichert.' : 'Gespeichert – ohne Keywords wird nichts ausgeblendet.');
+    setStatus(keywords.length ? 'Saved.' : 'Saved – without keywords nothing will be hidden.');
   });
 })();

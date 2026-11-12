@@ -1,4 +1,4 @@
-"""Erzeugt die Extension-Icons (schwarzes Quadrat mit pinken Schwärzungsbalken) ohne externe Abhängigkeiten."""
+"""Generates the extension icons (black square with pink redaction bars) without external dependencies."""
 import struct
 import zlib
 from pathlib import Path

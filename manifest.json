@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "No Spoiler for GTA VI",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Hides GTA VI spoilers on web pages: text is redacted, images and videos are obscured.",
   "permissions": ["storage", "activeTab"],
   "icons": {

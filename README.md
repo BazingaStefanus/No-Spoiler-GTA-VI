@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.1-ff3e96" alt="Version 2.0.1">
+  <img src="https://img.shields.io/badge/version-2.0.2-ff3e96" alt="Version 2.0.2">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
   <img src="https://img.shields.io/badge/Manifest-V3-informational" alt="Manifest V3">
   <img src="https://img.shields.io/badge/Chrome%20%C2%B7%20Edge%20%C2%B7%20Firefox%20%C2%B7%20Safari-supported-success" alt="Chrome, Edge, Firefox, Safari">
@@ -34,7 +34,7 @@
 
 ## Install
 
-The extension is not listed in any store yet. Until then, install it from source as described below.
+The extension is not listed in any store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
 
 <!-- Store links go here once published:
 - Chrome Web Store: …
@@ -46,18 +46,18 @@ The extension is not listed in any store yet. Until then, install it from source
 <details>
 <summary><strong>Chrome / Edge</strong></summary>
 
-1. Clone or download this repository.
+1. Download `no-spoiler-gta-vi-chrome-edge-<version>.zip` from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) and unzip it (or clone this repository).
 2. Open `chrome://extensions` (or `edge://extensions`) and enable **Developer mode**.
-3. Click **Load unpacked** and select the project folder.
+3. Click **Load unpacked** and select the unzipped folder (or the project folder).
 
 </details>
 
 <details>
 <summary><strong>Firefox</strong></summary>
 
-1. Clone or download this repository.
+1. Download `no-spoiler-gta-vi-firefox-<version>.zip` from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) (or clone this repository).
 2. Open `about:debugging#/runtime/this-firefox`.
-3. Click **Load Temporary Add-on** and select `manifest.json` in the project folder. Firefox assigns a temporary add-on ID; the add-on is removed when Firefox quits.
+3. Click **Load Temporary Add-on** and select the downloaded ZIP (or `manifest.json` in the project folder). The release ZIP is unsigned, so Firefox assigns a temporary add-on ID; the add-on is removed when Firefox quits.
 
 To test the release build with the Firefox-specific settings (add-on ID, minimum version, data collection declaration), run `./tools/build.sh` (requires Node.js) and select `dist/firefox/manifest.json` instead. Those settings live in `tools/firefox-overrides.json` and are merged into `manifest.json` during the build.
 

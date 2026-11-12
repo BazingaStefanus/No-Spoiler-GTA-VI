@@ -21,9 +21,10 @@ Optionally build the packages first: `./tools/build.sh` (creates `dist/`).
 2. Click "Load unpacked" and select this project folder (or `dist/chrome-edge`).
 
 **Firefox**
-1. Run `./tools/build.sh` (requires Node.js; the Firefox manifest is generated from `manifest.json`).
-2. Open `about:debugging#/runtime/this-firefox`.
-3. Click "Load Temporary Add-on" and select `dist/firefox/manifest.json`.
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click "Load Temporary Add-on" and select `manifest.json` in this project folder. Firefox assigns a temporary add-on ID; no build is needed for development.
+
+To test the release build with the Firefox-specific settings (add-on ID, minimum version, data collection declaration), run `./tools/build.sh` first (requires Node.js) and select `dist/firefox/manifest.json` instead. These settings live in `tools/firefox-overrides.json` and are merged into `manifest.json` during the build.
 
 To publish permanently, upload the zips from `dist/` to the respective stores (Chrome Web Store, Edge Add-ons, addons.mozilla.org). Adjust the Firefox add-on ID in `tools/firefox-overrides.json` beforehand.
 

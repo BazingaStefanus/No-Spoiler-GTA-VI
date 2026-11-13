@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.2.1-ff3e96" alt="Version 2.2.1">
+  <img src="https://img.shields.io/badge/version-2.2.2-ff3e96" alt="Version 2.2.2">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
   <img src="https://img.shields.io/badge/Manifest-V3-informational" alt="Manifest V3">
   <img src="https://img.shields.io/badge/Chrome%20%C2%B7%20Edge%20%C2%B7%20Firefox%20%C2%B7%20Safari-supported-success" alt="Chrome, Edge, Firefox, Safari">
@@ -34,17 +34,20 @@
 
 ## Install
 
-The extension is not listed in any store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
+- **Microsoft Edge:** [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) (automatic updates)
 
-<!-- Store links go here once published:
+<!-- More store links go here once published:
 - Chrome Web Store: …
-- Edge Add-ons: …
 - Firefox Add-ons: …
 - App Store (Safari): …
 -->
 
+The other browsers are not listed in a store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
+
 <details>
 <summary><strong>Chrome / Edge</strong></summary>
+
+On Edge, install it from [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) instead. The steps below are for Chrome and for testing a development build in Edge.
 
 1. Download `no-spoiler-gta-vi-chrome-edge-<version>.zip` from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) and unzip it (or clone this repository).
 2. Open `chrome://extensions` (or `edge://extensions`) and enable **Developer mode**.

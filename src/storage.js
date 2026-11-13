@@ -26,7 +26,33 @@
     'Jason und Lucia',
     'Lucia und Jason',
     'Jason & Lucia',
-    'Lucia & Jason'
+    'Lucia & Jason',
+    'Jason y Lucia',
+    'Lucia y Jason',
+    'Jason y Lucía',
+    'Lucía y Jason',
+    'Lucía Caminos',
+    'Jason et Lucia',
+    'Lucia et Jason',
+    'Jason e Lucia',
+    'Lucia e Jason',
+    'Jason en Lucia',
+    'Lucia en Jason',
+    'Jason i Lucia',
+    'Lucia i Jason',
+    // Places
+    'Port Gellhorn',
+    'Leonida Keys',
+    'Grassrivers',
+    'Mount Kalaga',
+    // Side characters (full names only, to avoid false positives)
+    'Cal Hampton',
+    'Boobie Ike',
+    "Dre'Quan Priest",
+    'Dre’Quan Priest',
+    'Real Dimez',
+    'Raul Bautista',
+    'Brian Heder'
   ];
 
   const DEFAULTS = {

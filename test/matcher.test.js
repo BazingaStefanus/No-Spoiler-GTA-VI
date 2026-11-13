@@ -20,7 +20,14 @@ test('Default keywords are detected', () => {
     'Neuer Leak zu GTA VI!',
     'https://example.com/news/gta-vi-trailer.jpg',
     'GTA-VI-Trailer',
-    'gta_6_screenshot.png'
+    'gta_6_screenshot.png',
+    'Jason y Lucía',
+    'Lucía y Jason',
+    'Jason et Lucia',
+    'Port Gellhorn',
+    'Leonida Keys',
+    'Boobie Ike',
+    'Dre’Quan Priest'
   ]) {
     assert.ok(re.test(t), t);
   }

@@ -214,6 +214,7 @@
         "GENERATE_INFOPLIST_FILE": "YES",
         "INFOPLIST_FILE": "iOS (App)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "Copyright © 2026 Steffen Todzy",
         "INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents": "YES",
         "INFOPLIST_KEY_UILaunchStoryboardName": "LaunchScreen",
         "INFOPLIST_KEY_UIMainStoryboardFile": "Main",
@@ -273,6 +274,8 @@
         "GENERATE_INFOPLIST_FILE": "YES",
         "INFOPLIST_FILE": "macOS (App)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI",
+        "INFOPLIST_KEY_LSApplicationCategoryType": "public.app-category.utilities",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "Copyright © 2026 Steffen Todzy",
         "INFOPLIST_KEY_NSMainStoryboardFile": "Main",
         "INFOPLIST_KEY_NSPrincipalClass": "NSApplication",
         "LD_RUNPATH_SEARCH_PATHS": [
@@ -314,8 +317,8 @@
         "GENERATE_INFOPLIST_FILE": "YES",
         "INFOPLIST_FILE": "iOS (Extension)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI Extension",
-        "INFOPLIST_KEY_NSHumanReadableCopyright": "",
-        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "Copyright © 2026 Steffen Todzy",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0",
         "LD_RUNPATH_SEARCH_PATHS": [
           "$(inherited)",
           "@executable_path/Frameworks",
@@ -357,7 +360,7 @@
         "GENERATE_INFOPLIST_FILE": "YES",
         "INFOPLIST_FILE": "macOS (Extension)/Info.plist",
         "INFOPLIST_KEY_CFBundleDisplayName": "No Spoiler for GTA VI Extension",
-        "INFOPLIST_KEY_NSHumanReadableCopyright": "",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "Copyright © 2026 Steffen Todzy",
         "LD_RUNPATH_SEARCH_PATHS": [
           "$(inherited)",
           "@executable_path/../Frameworks",

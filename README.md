@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.3-ff3e96" alt="Version 2.0.3">
+  <img src="https://img.shields.io/badge/version-2.0.4-ff3e96" alt="Version 2.0.4">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
   <img src="https://img.shields.io/badge/Manifest-V3-informational" alt="Manifest V3">
   <img src="https://img.shields.io/badge/Chrome%20%C2%B7%20Edge%20%C2%B7%20Firefox%20%C2%B7%20Safari-supported-success" alt="Chrome, Edge, Firefox, Safari">
@@ -109,6 +109,8 @@ The popup additionally offers a global on/off switch and a switch for the curren
 - Settings are stored locally in the browser (`storage.local`) and never leave it.
 - Permissions: `storage` (save settings), `activeTab` (show the current site in the popup), and a content script on all websites (that is where the spoilers are).
 
+Full privacy policy: [PRIVACY.md](PRIVACY.md)
+
 ## Development
 
 Requirements: Node.js 18 or newer. For Safari builds additionally Xcode; for regenerating the icons Python 3 with Pillow (`pip install pillow`).
@@ -123,6 +125,7 @@ open test/testpage.html  # manual test page (Chrome may need "Allow access to fi
 | `tools/build.sh` | Builds `dist/chrome-edge.zip`, `dist/firefox.zip` and `dist/safari/` |
 | `tools/build_safari.sh` | Builds, signs and opens the macOS container app |
 | `tools/build_ios.sh` | Builds, signs and installs the iOS container app on a connected iPhone |
+| `tools/archive_appstore.sh` | Archives the iOS and macOS apps for upload to App Store Connect |
 | `tools/make_icons.py` | Regenerates all icons (extension and Safari apps); `--preview DIR` renders a contact sheet |
 
 ```

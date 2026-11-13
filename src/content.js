@@ -30,6 +30,10 @@
   let rafId = 0;
   const pendingNodes = new Set();
   const pendingMedia = new Set();
+  // "Hide completely": page rules like `.entry img { display: block !important }` can outrank the
+  // stylesheet rule, so hidden elements also get an inline `display: none !important`.
+  // Element → its original inline display ({ value, priority }), restored on teardown.
+  const inlineHidden = new Map();
 
   // Redaction: text gets black bars via the CSS Custom Highlight API (no DOM changes, layout is preserved).
   // On dark backgrounds the bars are white instead (second highlight).
@@ -294,6 +298,24 @@
 
   // ---------- Hiding ----------
 
+  function hideInline(el) {
+    if (cfg.mode !== 'hide' || inlineHidden.has(el)) return;
+    inlineHidden.set(el, {
+      value: el.style.getPropertyValue('display'),
+      priority: el.style.getPropertyPriority('display')
+    });
+    el.style.setProperty('display', 'none', 'important');
+  }
+
+  function restoreInline() {
+    for (const [el, orig] of inlineHidden) {
+      if (orig.value) el.style.setProperty('display', orig.value, orig.priority);
+      else el.style.removeProperty('display');
+      if (!el.getAttribute('style')) el.removeAttribute('style');
+    }
+    inlineHidden.clear();
+  }
+
   function hideText(textNode) {
     const parent = textNode.parentElement;
     if (!parent || parent.closest('.' + HIDDEN)) return;
@@ -308,6 +330,7 @@
       target.appendChild(textNode);
     }
     target.classList.add(HIDDEN, BLOCK);
+    hideInline(target);
     if (cfg.mode === 'blackout') redactWithin(target);
     if (cfg.hideMedia) {
       markShadowMedia(target);
@@ -343,6 +366,7 @@
     if (!el.matches(MEDIA_SELECTOR)) return;
     if (re.test(mediaText(el))) {
       el.classList.add(HIDDEN, MEDIA);
+      hideInline(el);
       pauseVideos(el);
     }
   }
@@ -437,6 +461,7 @@
     themeQuery = null;
     rangesByTarget = new Map();
     rangeOfNode = new WeakMap();
+    restoreInline();
     document.querySelectorAll('.' + WRAP).forEach((w) => w.replaceWith(...w.childNodes));
     document.querySelectorAll('.' + HIDDEN).forEach((el) => el.classList.remove(HIDDEN, BLOCK, MEDIA, REVEALED));
     document.querySelectorAll('.' + MEDIA_HOST).forEach((el) => el.classList.remove(MEDIA_HOST));

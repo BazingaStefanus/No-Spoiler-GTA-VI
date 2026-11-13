@@ -7,6 +7,8 @@
     body { font: 16px/1.5 sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
     article, .news-card, li { margin: 1rem 0; padding: 0.5rem 1rem; border: 1px solid #ccc; }
     img, .thumb { width: 200px; height: 100px; background: #3a7; display: block; }
+    /* Page rule that outranks the stylesheet's display: none (seen on stadt-bremerhaven.de) */
+    .entry-inner > p:first-child img { display: block !important; }
   </style>
 </head>
 <body>
@@ -43,6 +45,12 @@
   <img id="img-file" alt="" src="https://example.invalid/images/gta-vi-trailer.jpg" style="width:200px;height:100px">
   <a href="/news/gta-6-release"><img id="img-link" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px"></a>
   <img id="img-ok" alt="Cat" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px">
+
+  <h2>Image with a stronger page rule</h2>
+  <p>Must disappear in "Hide completely" despite <code>.entry-inner &gt; p:first-child img { display: block !important }</code>.</p>
+  <div class="entry-inner">
+    <p><img id="img-important" alt="GTA VI Artwork" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" style="width:200px;height:100px"></p>
+  </div>
 
   <h2>Paragraph</h2>
   <div id="wrap">

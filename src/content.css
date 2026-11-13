@@ -42,7 +42,9 @@ html[data-nsg-mode="blur"] .nsg-media:not(.nsg-revealed) {
   filter: blur(24px) !important;
 }
 
-/* ---------- Hide completely ---------- */
+/* ---------- Hide completely ----------
+   content.js also sets an inline display: none !important, because page rules with
+   !important and higher specificity would otherwise win. */
 html[data-nsg-mode="hide"] .nsg-hidden {
   display: none !important;
 }

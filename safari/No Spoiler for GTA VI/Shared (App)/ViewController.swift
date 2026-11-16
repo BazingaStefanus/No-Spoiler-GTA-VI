@@ -9,6 +9,7 @@ import WebKit
 
 #if os(iOS)
 import UIKit
+import SafariServices
 typealias PlatformViewController = UIViewController
 #elseif os(macOS)
 import Cocoa
@@ -28,7 +29,9 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.navigationDelegate = self
 
 #if os(iOS)
-        self.webView.scrollView.isScrollEnabled = false
+        // The setup instructions can be taller than small screens.
+        self.webView.scrollView.isScrollEnabled = true
+        self.webView.scrollView.alwaysBounceVertical = false
 #endif
 
         self.webView.configuration.userContentController.add(self, name: "controller")
@@ -38,7 +41,12 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 #if os(iOS)
-        webView.evaluateJavaScript("show('ios')")
+        // iOS 26.2+ can open Safari's settings for this extension directly.
+        if #available(iOS 26.2, *) {
+            webView.evaluateJavaScript("show('ios', undefined, false, true)")
+        } else {
+            webView.evaluateJavaScript("show('ios')")
+        }
 #elseif os(macOS)
         webView.evaluateJavaScript("show('mac')")
 
@@ -60,7 +68,20 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-#if os(macOS)
+#if os(iOS)
+        guard message.body as? String == "open-settings" else {
+            return
+        }
+
+        if #available(iOS 26.2, *) {
+            SFSafariSettings.openExtensionsSettings(forIdentifiers: [extensionBundleIdentifier]) { error in
+                if error != nil {
+                    // Show the manual steps instead of the button.
+                    self.webView.evaluateJavaScript("settingsUnavailable()")
+                }
+            }
+        }
+#elseif os(macOS)
         if (message.body as! String != "open-preferences") {
             return
         }

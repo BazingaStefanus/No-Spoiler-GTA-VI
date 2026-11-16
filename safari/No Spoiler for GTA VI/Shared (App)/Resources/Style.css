@@ -11,7 +11,7 @@
 }
 
 html {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
 
     gap: var(--spacing);
     margin: 0 calc(var(--spacing) * 2);
-    height: 100%;
+    min-height: 100vh;
 
     font: -apple-system-short-body;
     text-align: center;
@@ -58,4 +58,68 @@ body.state-off :is(.state-on, .state-unknown) {
 
 button {
     font-size: 1em;
+}
+
+/* iOS setup instructions */
+
+body.platform-ios {
+    padding: calc(var(--spacing) * 2) 0;
+    box-sizing: border-box;
+}
+
+.ios-setup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    max-width: 520px;
+}
+
+body.platform-ios .ios-setup {
+    display: flex;
+}
+
+.ios-setup h1 {
+    font: -apple-system-title2;
+    font-weight: 600;
+    margin: 0;
+}
+
+.ios-setup h2 {
+    font: -apple-system-headline;
+    margin: var(--spacing) 0 0;
+}
+
+.ios-setup p {
+    margin: 0;
+}
+
+.ios-setup .lead {
+    color: color-mix(in srgb, currentColor 75%, transparent);
+}
+
+.ios-setup .steps {
+    text-align: left;
+    margin: 0;
+    padding-left: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) / 2);
+}
+
+.open-settings {
+    font: -apple-system-headline;
+    color: white;
+    background: #ff3e96;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+body:not(.can-open-settings) .open-settings {
+    display: none;
+}
+
+body.can-open-settings .manual-only {
+    display: none;
 }

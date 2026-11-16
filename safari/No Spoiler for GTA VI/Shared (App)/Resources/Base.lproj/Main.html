@@ -4,14 +4,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
 
     <link rel="stylesheet" href="../Style.css">
     <script src="../Script.js" defer></script>
 </head>
 <body>
     <img src="../Icon.png" width="128" height="128" alt="No Spoiler for GTA VI Icon">
-    <p class="platform-ios">You can turn on No Spoiler for GTA VI’s Safari extension in Settings.</p>
+
+    <section class="platform-ios ios-setup">
+        <h1>Turn on No Spoiler for GTA VI</h1>
+        <p class="lead">The extension runs inside Safari. Turn it on once in Settings and it hides GTA VI spoilers on every website you visit.</p>
+
+        <button class="platform-ios open-settings">Open Safari Extension Settings</button>
+
+        <ol class="steps">
+            <li class="manual-only">Open the <b>Settings</b> app and go to <b>Apps → Safari → Extensions</b> (on iOS 17: <b>Safari → Extensions</b>).</li>
+            <li class="manual-only">Tap <b>No Spoiler for GTA VI</b>.</li>
+            <li>Turn on <b>Allow Extension</b>.</li>
+            <li>Under website permissions, set <b>All Websites</b> (or <b>Other Websites</b>) to <b>Allow</b>. Spoilers can only be hidden on websites the extension may access.</li>
+            <li>Optional: turn on <b>Allow in Private Browsing</b>.</li>
+        </ol>
+
+        <h2>Using it in Safari</h2>
+        <p>Spoilers are hidden automatically. Tap a hidden area to reveal it. To change keywords, the mode or the per-site switch, open the page menu in Safari’s address bar and tap <b>No Spoiler for GTA VI</b>.</p>
+    </section>
+
     <p class="platform-mac state-unknown">You can turn on No Spoiler for GTA VI’s extension in Safari Extensions preferences.</p>
     <p class="platform-mac state-on">No Spoiler for GTA VI’s extension is currently on. You can turn it off in Safari Extensions preferences.</p>
     <p class="platform-mac state-off">No Spoiler for GTA VI’s extension is currently off. You can turn it on in Safari Extensions preferences.</p>

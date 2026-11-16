@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.2.2-ff3e96" alt="Version 2.2.2">
+  <img src="https://img.shields.io/badge/version-2.2.3-ff3e96" alt="Version 2.2.3">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
   <img src="https://img.shields.io/badge/Manifest-V3-informational" alt="Manifest V3">
   <img src="https://img.shields.io/badge/Chrome%20%C2%B7%20Edge%20%C2%B7%20Firefox%20%C2%B7%20Safari-supported-success" alt="Chrome, Edge, Firefox, Safari">
@@ -35,14 +35,14 @@
 ## Install
 
 - **Microsoft Edge:** [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) (automatic updates)
+- **Firefox:** [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/no-spoiler-for-gta-vi/) (automatic updates)
 
 <!-- More store links go here once published:
 - Chrome Web Store: …
-- Firefox Add-ons: …
 - App Store (Safari): …
 -->
 
-The other browsers are not listed in a store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
+Chrome and Safari are not listed in a store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
 
 <details>
 <summary><strong>Chrome / Edge</strong></summary>
@@ -57,6 +57,8 @@ On Edge, install it from [Edge Add-ons](https://microsoftedge.microsoft.com/addo
 
 <details>
 <summary><strong>Firefox</strong></summary>
+
+Install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/no-spoiler-for-gta-vi/) instead. The steps below are for testing a development build.
 
 1. Download `no-spoiler-gta-vi-firefox-<version>.zip` from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) (or clone this repository).
 2. Open `about:debugging#/runtime/this-firefox`.

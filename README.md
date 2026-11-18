@@ -34,20 +34,20 @@
 
 ## Install
 
+- **Google Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/kdfobmiledbcilmbfkkhakifnlgdcjhp) (automatic updates)
 - **Microsoft Edge:** [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) (automatic updates)
 - **Firefox:** [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/no-spoiler-for-gta-vi/) (automatic updates)
 
 <!-- More store links go here once published:
-- Chrome Web Store: …
 - App Store (Safari): …
 -->
 
-Chrome and Safari are not listed in a store yet. Until then, download the ZIP for your browser from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or install it from source as described below.
+Safari is not listed in the App Store yet. Until then, build it from source as described below. For development builds in the other browsers, download the ZIP from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) or use the repository directly.
 
 <details>
 <summary><strong>Chrome / Edge</strong></summary>
 
-On Edge, install it from [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) instead. The steps below are for Chrome and for testing a development build in Edge.
+Install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/kdfobmiledbcilmbfkkhakifnlgdcjhp) or from [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/no-spoiler-for-gta-vi/fmhmlnploifpjcmegllcgbmaflfaeack) instead. The steps below are for testing a development build.
 
 1. Download `no-spoiler-gta-vi-chrome-edge-<version>.zip` from the [latest release](https://github.com/BazingaStefanus/No-Spoiler-GTA-VI/releases/latest) and unzip it (or clone this repository).
 2. Open `chrome://extensions` (or `edge://extensions`) and enable **Developer mode**.
